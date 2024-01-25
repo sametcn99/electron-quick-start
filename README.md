@@ -1,6 +1,8 @@
 # electron-quick-start
 - Bootstrapped from https://github.com/electron/electron-quick-start
 
+![screenshot](/assets/screenshots/screenshot.gif)
+
 ## Resources for Learning Electron
 
 - [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
