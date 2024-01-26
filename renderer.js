@@ -25,3 +25,18 @@ increaseBtn.addEventListener('click', () => {
     countSpan.innerText = count
     console.log(`increase button clicked.\nCount: ${count}`)
 })
+
+// source code button 
+const sourceCodeBtn = document.getElementById('sourceCodeBtn')
+/**
+ * Adds click event listener to sourceCodeBtn that calls
+ * window.electronAPI.openNewWindow() to open a new window when clicked
+ */
+sourceCodeBtn.addEventListener("click", () => {
+    const confirm = window.confirm("You are exiting the application. Are you sure you want to continue?");
+    if (confirm) {
+        // window.electronAPI is coming from preload.js
+        // using ipcRenderer and contextBridge
+        window.electronAPI.openNewWindow();
+    }
+})
