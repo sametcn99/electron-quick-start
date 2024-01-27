@@ -40,3 +40,20 @@ sourceCodeBtn.addEventListener("click", () => {
         window.electronAPI.openNewWindow();
     }
 })
+
+
+/**
+ * Creates a browser notification with given title and body.
+ * Registers a click handler that logs a message to the output element.
+ * Documentation: https://www.electronjs.org/docs/latest/tutorial/notifications
+ */
+const NOTIFICATION_TITLE = "Title";
+const NOTIFICATION_BODY =
+    "Notification from the Renderer process. Click to log to console.";
+const CLICK_MESSAGE = "Notification clicked!";
+
+new window.Notification(NOTIFICATION_TITLE, {
+    body: NOTIFICATION_BODY,
+}).onclick = () => {
+    document.getElementById("output").innerText = CLICK_MESSAGE;
+};

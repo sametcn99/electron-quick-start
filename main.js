@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // Modules to control application life and create native browser window
-const { shell } = require('electron')
+const { shell, Notification } = require('electron')
 const { app, BrowserWindow, ipcMain } = require('electron/main')
 const path = require('node:path')
 
@@ -48,6 +48,7 @@ function createMainWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createMainWindow()
+  showNotification()
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -85,3 +86,20 @@ ipcMain.on("open-new-window", () => {
   // Shell documentation: https://www.electronjs.org/docs/latest/api/shell
   shell.openExternal(url);
 })
+
+
+/**
+ * Shows a system notification to indicate the app is ready.
+ * Defines the notification title and body text constants.
+ * Creates a new Notification instance with the title and body text,
+ * and calls the show() method to display it.
+ * Documentation: https://www.electronjs.org/docs/latest/tutorial/notifications
+ */
+const NOTIFICATION_TITLE = "Application is ready";
+const NOTIFICATION_BODY = "Notification from the Main process";
+function showNotification() {
+  new Notification({
+    title: NOTIFICATION_TITLE,
+    body: NOTIFICATION_BODY,
+  }).show();
+}
