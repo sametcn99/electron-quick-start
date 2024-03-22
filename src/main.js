@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+// eslint-disable-next-line no-unused-vars
 // Modules to control application life and create native browser window
 const { shell, Notification } = require('electron')
 const { app, BrowserWindow, ipcMain } = require('electron/main')
@@ -8,7 +9,6 @@ const path = require('node:path')
  * Boolean indicating if the app is running in production mode.
  * Set based on the NODE_ENV environment variable.
 */
-// eslint-disable-next-line no-unused-vars
 const isProd = process.env.NODE_ENV === 'production'
 
 /**
