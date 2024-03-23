@@ -30,14 +30,15 @@ function createMainWindow() {
     autoHideMenuBar: true
   })
 
-  // open developer console in dev mode
-  isProd ? null : mainWindow.webContents.openDevTools()
 
   /** Path to the index.html file that will be loaded into the main browser window. */
-  const indexPath = path.join(__dirname, 'pages', 'index.html')
+  const indexPath = path.join(__dirname, 'index.html')
 
   // and load the index.html of the app.
   mainWindow.loadFile(indexPath)
+
+  // open developer console in dev mode
+  isProd ? null : mainWindow.webContents.openDevTools()
 
   // if main window is closed then quit application
   mainWindow.on('closed', () => app.quit())
